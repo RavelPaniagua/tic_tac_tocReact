@@ -1,12 +1,21 @@
+import {useState} from 'react';
+
 const TURNS = {
   X: 'x',
   O: 'o',
 };
 
-//esto es un arreglo de 9 espacios rellenados con null
-const board = Array(9).fill(null);
+const Square = (children,updateBoard,index) =>{
+  return(
+    <div className="square">
+      {children}
+    </div>
+  )
+}
+
 
 export default function Juego() {
+  const [board,setBorad] = useState(Array(9).fill(null));
   return (
     <section className="game">
       {board.map((_, index) => {
